@@ -287,6 +287,13 @@ def main():
    graph.add_node("GrossleyHall", 788, 464)
    graph.add_node("DEPublicMedia", 620, 561)
    graph.add_node("P8A", 712, 440)
+   graph.add_node("Towers", 586, 511)
+   graph.add_node("HealthServices", 568, 526)
+   graph.add_node("P9", 582, 480)
+   graph.add_node("Tubman", 636, 488)
+   graph.add_node("Thomasson", 654, 435)
+   graph.add_node("Conrad", 624, 420)
+   graph.add_node("Conwell", 665, 347)
    #
    # EDGES  Establish the edges manually, but calculate weights based on distance
    #
@@ -374,6 +381,18 @@ def main():
    graph.add_edge("P8A", "DEHall")
    graph.add_edge("P8A", "Gym")
    graph.add_edge("P8A", "Gym")
+   graph.add_edge("Towers", "DEPublicMedia")
+   graph.add_edge("Towers", "HealthServices")
+   graph.add_edge("P9", "Towers")
+   graph.add_edge("P9", "HealthServices")
+   graph.add_edge("Tubman", "Warren")
+   graph.add_edge("Tubman", "Towers")
+   graph.add_edge("Tubman", "P9")
+   graph.add_edge("Thomasson", "Tubman")
+   graph.add_edge("Thomasson", "P8A")
+   graph.add_edge("Conrad", "Thomasson")
+   graph.add_edge("Conrad", "P9")
+   #graph.add_edge("Conwell", "P9")
    # Finally, draw the graph
    draw_graph(canvas, graph, image_on_canvas)
 
