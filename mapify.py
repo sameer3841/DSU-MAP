@@ -82,30 +82,30 @@ def draw_graph(canvas, graph, image_on_canvas):
 
 # Dijkstra's algorithm for shortest path
 def dijkstra(graph, start, end):
-    distances = {node: float('inf') for node in graph.nodes}
-    distances[start] = 0
-    priority_queue = [(0, start)]
-    previous = {node: None for node in graph.nodes}
+   distances = {node: float('inf') for node in graph.nodes}
+   distances[start] = 0
+   priority_queue = [(0, start)]
+   previous = {node: None for node in graph.nodes}
 
-    while priority_queue:
-        current_distance, current_node = heapq.heappop(priority_queue)
+   while priority_queue:
+      current_distance, current_node = heapq.heappop(priority_queue)
 
-        if current_node == end:
-            break
+      if current_node == end:
+         break
 
-        for neighbor, weight in graph.get_neighbors(current_node):
-            distance = current_distance + weight
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                previous[neighbor] = current_node
-                heapq.heappush(priority_queue, (distance, neighbor))
+      for neighbor, weight in graph.get_neighbors(current_node):
+         distance = current_distance + weight
+         if distance < distances[neighbor]:
+               distances[neighbor] = distance
+               previous[neighbor] = current_node
+               heapq.heappush(priority_queue, (distance, neighbor))
 
-    # Reconstruct the path
-    path = []
-    while end:
-        path.append(end)
-        end = previous[end]
-    return path[::-1], distances[path[0]]
+   # Reconstruct the path
+   path = []
+   while end:
+      path.append(end)
+      end = previous[end]
+   return path[::-1], distances[path[0]]
 
 
 # Node selection and pathfinding
