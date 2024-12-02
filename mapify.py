@@ -182,7 +182,7 @@ class Graph:
 def main():
    # Initialize Tkinter window
    root = tk.Tk()
-   root.title("Graph on Map")
+   root.title("DSU Maps")
    canvas_width = 1200
    canvas_height = 850
 
