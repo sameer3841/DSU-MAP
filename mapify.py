@@ -7,7 +7,7 @@ import math
 
 def runGUI():
    # Path to the pre-determined image
-   image_path = "images/DSU_MAP.png"  # Replace with your image path
+   image_path = "/DSU-MAP/images/DSU_MAP.png"  # Replace with your image path
 
    # Function to handle mouse clicks
    def on_click(event):
