@@ -130,11 +130,11 @@ def on_node_click(canvas, graph, node, image_on_canvas):
       print(f"Path: {path}, Cost: {cost}")
       starting, ending = path[0], path[len(path) - 1]
 
-      text1 = canvas.create_text(200, 75, text=starting, font=("Arial", 40), fill="black")
-      middle = canvas.create_text(200, 150, text="to", font=("Arial", 35), fill="black")
-      text2 = canvas.create_text(200, 225, text=ending, font=("Arial", 40), fill="black")
+      text1 = canvas.create_text(200, 95, text=starting, font=("Arial", 40), fill="black")
+      middle = canvas.create_text(200, 150, text="to", font=("Arial", 35), fill="blue")
+      text2 = canvas.create_text(200, 205, text=ending, font=("Arial", 40), fill="black")
 
-      pathScore = canvas.create_text(1025, 90, text=str(len(path)), font=("Arial", 40), fill="Red")
+      pathScore = canvas.create_text(340, 40, text=str(cost), font=("Arial", 40), fill="Red")
       
       # Clear previously drawn path lines
       for line in previous_path_lines:
