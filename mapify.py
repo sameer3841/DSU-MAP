@@ -3,7 +3,8 @@ from PIL import Image, ImageTk
 import heapq
 import math
 
-
+starting = ""
+ending = ""
 
 def runGUI():
    # Path to the pre-determined image
@@ -123,9 +124,17 @@ def on_node_click(canvas, graph, node, image_on_canvas):
    draw_graph(canvas, graph, image_on_canvas)
 
    if len(selected_nodes) == 2:
+      rectangle = canvas.create_rectangle(10, 10, 400, 300, fill="white", outline="black")
       start, end = selected_nodes
       path, cost = dijkstra(graph, start, end)
       print(f"Path: {path}, Cost: {cost}")
+      starting, ending = path[0], path[len(path) - 1]
+
+      text1 = canvas.create_text(200, 95, text=starting, font=("Arial", 40), fill="black")
+      middle = canvas.create_text(200, 150, text="to", font=("Arial", 35), fill="blue")
+      text2 = canvas.create_text(200, 205, text=ending, font=("Arial", 40), fill="black")
+
+      pathScore = canvas.create_text(340, 40, text=str(cost), font=("Arial", 40), fill="Red")
       
       # Clear previously drawn path lines
       for line in previous_path_lines:
@@ -486,6 +495,7 @@ def main():
    graph.add_edge("B46G", "B46E")
    graph.add_edge("B46E", "SouthernRoadway1")
    graph.add_edge("SouthernRoadway1", "B54")
+   graph.add_edge("AquaticResearch", "B1")
 
    # Finally, draw the graph
    draw_graph(canvas, graph, image_on_canvas)
