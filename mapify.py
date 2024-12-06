@@ -134,8 +134,8 @@ def on_node_click(canvas, graph, node, image_on_canvas):
       middle = canvas.create_text(200, 150, text="to", font=("Arial", 35), fill="blue")
       text2 = canvas.create_text(200, 205, text=ending, font=("Arial", 40), fill="black")
 
-      pathScore = canvas.create_text(340, 40, text=str(cost), font=("Arial", 40), fill="Red")
-      
+      pathScore = canvas.create_text(330, 40, text=(str(cost * 5) + " ft"), font=("Arial", 40), fill="Red")
+
       # Clear previously drawn path lines
       for line in previous_path_lines:
          canvas.delete(line)  # Remove the previous path lines
